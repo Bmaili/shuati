@@ -34,28 +34,36 @@ class Solution {
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null||head.next==null) {
+            return head;
+        }
+
         ListNode hair = new ListNode();
         ListNode res = hair;
 
-        ListNode biaoji=head;
         ListNode kNode =head;
+        ListNode nextHair = head;
 
-        outer:
-        while (true) {
-            int n = 0;
-            ListNode star = biaoji;
-            for (n = 0; n < k; n++) {
-                if (kNode == null) {
-                    break outer;
+        while (true){
+            for (int i = 1; i < k; i++) {
+                if(kNode.next==null){
+                    hair.next = head;
+                    return res.next;
                 }
                 kNode = kNode.next;
             }
-            biaoji = kNode.next;
-            kNode.next = null;
-            hair.next = reverse(star, kNode);
-            hair = hair;
-
+            nextHair = kNode;
+            kNode = kNode.next;
+            nextHair.next=null;
+            hair.next = reverse(head, nextHair);
+            hair=head;
+            head = kNode;
+            if(kNode==null){
+                hair.next = head;
+                return res.next;
+            }
         }
-        return res;
+
+
     }
 }
