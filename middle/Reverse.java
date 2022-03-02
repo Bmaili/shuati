@@ -10,8 +10,8 @@ package middle;
 public class Reverse {
     public int reverse(int x) {
         int res = 0;
-        int yuan = x;
-        x = 0 > x ? -x : x;
+        boolean biaozhi = x>0;
+        x = biaozhi ? x : -x;
         while (x > 0) {
             if (res > Integer.MAX_VALUE / 10) {
                 return 0;
@@ -20,7 +20,6 @@ public class Reverse {
             x /= 10;
 
         }
-        return 0 > yuan ? -res : res;
-
+        return biaozhi ? res : -res;
     }
 }
