@@ -11,7 +11,10 @@ public class TestSome {
         integers.add(0);
         integers.set(0,2);
         System.out.println(integers.get(0));
+        ArrayList<Integer> list = new ArrayList<>();
+        for (var a : list) {
 
+        }
 
     }
 }
