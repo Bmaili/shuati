@@ -20,6 +20,7 @@ public class WordBreak139 {
                 }
             }
         }
+
         return dp[s.length()];
     }
 
